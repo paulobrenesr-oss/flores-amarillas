@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para ti 🌻💛</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            min-height: 100vh;
+            font-family: 'Segoe UI', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #fff8dc, #ffe680, #fff3b0);
+            color: #5c4300;
+        }
+
+        .fondo {
+            position: fixed;
+            inset: 0;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .flor {
+            position: absolute;
+            font-size: 35px;
+            opacity: 0.25;
+            animation: caer linear infinite;
+        }
+
+        .flor:nth-child(1) {
+            left: 10%;
+            animation-duration: 8s;
+        }
+
+        .flor:nth-child(2) {
+            left:30%;
+            animation-duration: 11s;
+        }
+
+        .flor:nth-child(3) {
+            left: 50%;
+            animation-duration: 9s;
+        }
+
+        .flor:nth-child(4) {
+            left: 70%;
+            animation-duration: 12s;
+        }
+
+        .flor:nth-child(5) {
+            left: 90%;
+            animation-duration: 10s;
+        }
+
+        @keyframes caer {
+            from {
+                transform: translateY(-100px) rotate(0deg);
+            }
+
+            to {
+                transform: translateY(110vh) rotate(360deg);
+            }
+        }
+
+        .contenedor {
+            width: 90%;
+            max-width: 850px;
+            margin: auto;
+            padding: 60px 0;
+        }
+
+        .tarjeta {
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(10px);
+            border-radius: 30px;
+            padding: 45px 30px;
+            text-align: center;
+
+            box-shadow: 0 20px 50px rgba(133, 93, 0, 0.25);
+
+            border: 2px solid rgba(255, 193, 7, 0.4);
+
+            animation: aparecer 1.5s ease;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .flor-principal {
+            font-size: 95px;
+            animation: flotar 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 10px rgba(180, 130, 0, 0.25));
+        }
+
+        @keyframes flotar {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+
+            50% {
+                transform: translateY(-15deg) rotate(5deg);
+            }
+        }
+
+        h1 {
+            margin-top: 15px;
+            font-size: clamp(35px, 7vw, 65px);
+            color: #d99a00;
+            font-weight: 800;
+        }
+
+        .fecha {
+            margin-top: 8px;
+            font-size: 18px;
+            color: #8a6500;
+            letter-spacing: 3px;
+            font-weight: bold;
+        }
+
+        .linea {
+            width: 100px;
+            height: 4px;
+            background: #f4c20d;
+            margin: 25px auto;
+            border-radius: 20px;
+        }
+
+        .mensaje {
+            font-size: 19px;
+            line-height: 1.8;
+            max-width: 680px;
+            margin: auto;
+            color: #594500;
+        }
+
+        .mensaje strong {
+            color: #d99a00;
+        }
+
+        .sorpresa {
+            margin-top: 35px;
+        }
+
+        button {
+            border: none;
+            padding: 16px 30px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #f7c600, #e8a900);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+
+            box-shadow: 0 8px 20px rgba(197, 142, 0, 0.35);
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 12px 25px rgba(197, 142, 0, 0.45);
+        }
+
+        #mensajeOculto {
+            display: none;
+            margin-top: 25px;
+            padding: 25px;
+            border-radius: 20px;
+            background: #fff8d6;
+            border: 1px solid #f2cf54;
+
+            animation: aparecer 1s ease;
+        }
+
+        #mensajeOculto p {
+            font-size: 20px;
+            line-height: 1.7;
+        }
+
+        .firma {
+            margin-top: 30px;
+            font-size: 18px;
+            font-style: italic;
+            color: #866200;
+        }
+
+        .firma span {
+            display: block;
+            margin-top: 8px;
+            font-size: 25px;
+            font-weight: bold;
+            color: #d99a00;
+        }
+
+        .jardin {
+            margin-top: 35px;
+            font-size: 45px;
+            letter-spacing: 8px;
+        }
+
+        .corazon {
+            position: fixed;
+            bottom: -30px;
+            font-size: 25px;
+            animation: subir 5s linear  forwards;
+            pointer-events: none;
+        }
+
+        @keyframes subir {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0.5);
+            }
+
+            20% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-110vh) scale(1.4) rotate(20deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contenedor {
+                padding: 25px o;
+            }
+
+            .tarjeta {
+                padding: 35px 20px;
+                border-radius: 25px;
+            }
+
+            .flor-principal {
+                font-size: 75px;
+            }
+
+            .mensaje {
+                font-size: 17px;
+            }
+
+            #mensajeOculto p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="fondo">
+        <div class="flor">🌻</div>
+        <div class="flor">🌼</div>
+        <div class="flor">🌻</div>
+        <div class="flor">🌼</div>
+        <div class="flor">🌻</div>
+    </div>
+
+    <main class="contenedor">
+        <section class="tarjeta">
+            <div class="flor-principal">🌻</div>
+
+            <h1>Para ti, mi amor</h1>
+
+            <div class="fecha">
+                21 DE SEPTIEMBRE 💛
+            </div>
+
+            <div class="linea"></div>
+
+            <div class="mensaje">
+                <p>
+                    Hoy es <strong>21 de septiembre</strong>, un día lleno de 
+                    flores amarillas, pero para mí ninguna flor puede compararse 
+                    con la alegría que tú traes a mi vida.
+                </p>
+
+                <br>
+
+                <p>
+                    Quise regalarte algo defirente, algo que pudiera guardar 
+                    un pequeño pedacito de lo que siento por ti.
+                </p>
+
+                <br>
+
+                <p>
+                    Porque si pudiera elegir entre una flor para representar lo que 
+                    significas para mí, elegiría un campo entero de 
+                    <strong>flores amarillas</strong>
+                </p>
+            </div>
+
+            <div class="sorpresa">
+                <button onclick="mostrarMensaje()">
+                    🌻 Abrir mi sorpresa 🌻
+                </button>
+
+                <div id="mensajeOculto">
+                    <p>
+                        💛 Hoy quiero recordarte que eres una persona muy 
+                        especial para mí.
+                        <br><br>
+
+                        Gracias por cada momento, cada sonrisa, cada conversación 
+                        y cada recuerdo que hemos construido juntos.
+                        <br><br>
+
+                        Espero que estas flores amarillas representen un poquito
+                        de todo el cariño que tengo por ti.
+                        <br><br>
+
+                        <strong>
+                            Feliz 21 de septiembre. 🌻💛
+                        </strong>
+                    </p>
+                </div>
+            </div>
+            <div class="firma">
+                Con mucho cariño para ti...
+                <span>💛 Mi princesa hermosa 🌻</span>
+            </div>
+
+            <div class="jardin">
+                🌻 🌼 🌻 🌼 🌻
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        function mostrarMensaje() {
+            const mensaje = document.getElementById("mensajeOculto");
+
+            if (mensaje.style.display === "block") {
+                mensaje.style.display = "none";
+            } else {
+                mensaje.style.display = "block";
+
+                crearCorazones();
+            }
+        }
+
+        function crearCorazones() {
+            for (let i = 0; i < 18; i++) {
+
+                const corazon = document.createElement("div");
+
+                corazon.classList.add("corazon");
+
+                corazon.innerHTML = Math.random() > 0.5 ? "💛" : "🌻";
+
+                corazon.style.left = Math.random() * 100 + "vw";
+
+                corazon.style.animationDuration = (3 + Math.random() * 3) + "s";
+
+                corazon.style.fontSize = (18 + Math.random() * 20) + "px";
+
+                document.body,appendChild(corazon);
+
+                setTimeout(() => {
+                    corazon.remove();
+                }, 6000);
+            }
+        }
+    </script>
+</body>
+</html>
